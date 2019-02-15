@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Spring Boot Thymeleaf Hello World Example</title>
+
+    <link rel="stylesheet" th:href="@{webjars/bootstrap/4.2.1/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/main.css}"/>
+
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">nav-bar</a>
+</nav>
+
+<main role="main" class="container">
+
+    <div class="starter-template">
+        <h1>Example</h1>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Old value</th>
+                    <th scope="col">New value</th>
+                </tr>
+            </thead>
+            <tbody>
+            <!--/*@thymesVar id="readings" type="java.util.ArrayList<com.example.demo.api.reading.model.Reading>"*/-->
+                <tr th:each="reading : ${readings}">
+                    <th scope="row" th:text="${reading.id}"></th>
+                    <td th:text="${reading.date}"></td>
+                    <td th:text="${reading.oldValue}"></td>
+                    <td th:text="${reading.newValue}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</main>
+<!-- /.container -->
+
+<script type="text/javascript" th:src="@{webjars/bootstrap/4.2.1/js/bootstrap.min.js}"></script>
+</body>
+</html>
